@@ -32,9 +32,14 @@ def hook(d):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Baixar vídeos do YouTube.')
-    parser.add_argument('url', type=str, help='URL do vídeo do YouTube')
     parser.add_argument('--output', type=str, default='video', help='Diretório de saída')
     parser.add_argument('--format', type=str, default='mp4', help='Formato de saída do vídeo')
 
     args = parser.parse_args()
-    download_video(args.url, args.output, args.format)
+
+    while True:
+        video_url = input("Digite a URL do vídeo do YouTube (ou 'sair' para encerrar): ")
+        if video_url.lower() == 'sair':
+            print("Encerrando o programa.")
+            break
+        download_video(video_url, args.output, args.format)
