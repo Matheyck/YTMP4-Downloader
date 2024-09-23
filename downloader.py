@@ -5,7 +5,7 @@ import argparse
 def create_output_directory(output_path):
     os.makedirs(output_path, exist_ok=True)
 
-def download_video(url, output_path='download', format='mp4'):
+def download_video(url, output_path='video', format='mp4'):
     create_output_directory(output_path)
 
     if format == 'mp3':
@@ -42,7 +42,7 @@ def hook(d):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Baixar vídeos do YouTube.')
-    parser.add_argument('--output', type=str, default='video', help='Diretório de saída')
+    parser.add_argument('--output', type=str, default='downloads', help='Diretório de saída')
 
     args = parser.parse_args()
 
